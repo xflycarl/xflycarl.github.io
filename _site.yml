@@ -1,25 +1,23 @@
-project:
-  type: website
-  output-dir: docs
+name: "Fei Xue"
+output_dir: "."
 
-website:
-  title: "Fei Xue"
-  navbar:
-    left:
-      - text: "Home"
-        href: index.Rmd
-      - text: "resume"
-        href: resume.Rmd
-    right:
-      - icon: github
-        href: https://github.com/xflycarl
-      - icon: envelope
-        href: fx2206@cumc.columbia.edu
-      - text: Weibo
-        href: https://weibo.com/u/6421178940
+title: "Fei Xue"
+navbar:
+  left:
+    - text: "Home"
+      href: index.Rmd
+    - text: "resume"
+      href: resume.Rmd
+  right:
+    - icon: github
+      href: https://github.com/xflycarl
+    - icon: envelope
+      href: fx2206@cumc.columbia.edu
+    - text: Weibo
+      href: https://weibo.com/u/6421178940
 
-format:
-  html:
+output:
+  html_document:
     theme: cosmo
     toc: false
     number-sections: false
