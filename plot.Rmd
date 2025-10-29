@@ -8,7 +8,6 @@ output:
     css: |
       body { font-size: 16px; }
       .chart-title { font-size: 18px; font-weight: 600; }
-runtime: shiny
 ---
 
 ```{r setup, include=FALSE}
@@ -18,6 +17,7 @@ library(plotly)
 library(p8105.datasets)
 theme_set(theme_minimal(base_size = 16))
 ```
+
 ## Line plot
 ```{r}
 data("instacart")

@@ -11,7 +11,7 @@ output:
 
 I'm a graduate student focusing on **Biostatistics** in Columbia university.
 
-* view my [resume](resume.Rmd)
+* view my [resume](resume.html)
 * GitHub: <https://github.com/xflycarl>
 * Email: fx2206@cumc.columbia.edu
 * [Weibo](https://weibo.com/u/6421178940)
