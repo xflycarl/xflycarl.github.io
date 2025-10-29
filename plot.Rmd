@@ -9,73 +9,81 @@ output:
 
 ```{r setup, include=FALSE}
 library(flexdashboard)
-library(tidyverse)
+library(dplyr)
 library(plotly)
 library(p8105.datasets)
-theme_set(theme_minimal(base_size = 16))
 ```
 
 Column {data-width=650}
 -----------------------------------------------------------------------
 
-## Line plot
+### Line plot
 ```{r}
 data("instacart")
 
 set.seed(8105)
-insta_samp = instacart %>%
-sample_n(min(100000, nrow(instacart)))
+insta_samp <- instacart %>%
+  sample_n(min(100000, nrow(instacart)))
 
-hour_counts = insta_samp %>%
-count(order_hour_of_day, name = "orders")
+hour_counts <- insta_samp %>%
+  count(order_hour_of_day, name = "orders")
 
-p_line = ggplot(hour_counts, aes(x = order_hour_of_day, y = orders)) +
-geom_line() +
-labs(
-title = "Orders by Hour",
-x = "Hour of Day",
-y = "Number of Orders"
-)
-
-ggplotly(p_line)
-
+plot_ly(
+  data = hour_counts,
+  x = ~order_hour_of_day,
+  y = ~orders,
+  type = "scatter",
+  mode = "lines"
+) %>%
+  layout(
+    title = "Orders by Hour",
+    xaxis = list(title = "Hour of Day"),
+    yaxis = list(title = "Number of Orders")
+  )
 ```
 
 Column {data-width=350}
 -----------------------------------------------------------------------
 
-## Bar plot
+### Bar plot
 ```{r}
-dept_top = insta_samp %>%
-count(department, sort = TRUE) %>%
-slice_head(n = 15)
+dept_top <- insta_samp %>%
+  count(department, sort = TRUE) %>%
+  slice_head(n = 15)
 
-p_bar = ggplot(dept_top, aes(x = reorder(department, n), y = n)) +
-geom_col() +
-coord_flip() +
-labs(
-title = "Top 15 Departments by Orders",
-x = "Department",
-y = "Orders"
-)
-
-ggplotly(p_bar)
+plot_ly(
+  data = dept_top,
+  x = ~n,
+  y = ~reorder(department, n),
+  type = "bar",
+  orientation = "h"
+) %>%
+  layout(
+    title = "Top 15 Departments by Orders",
+    xaxis = list(title = "Orders"),
+    yaxis = list(title = "Department")
+  )
 ```
 
-## Box plot
+### Box plot
 ```{r}
-reorder_by_dow = insta_samp %>%
-group_by(order_dow, order_id) %>%
-summarize(reordered_frac = mean(reordered, na.rm = TRUE), .groups = "drop")
+reorder_by_dow <- insta_samp %>%
+  group_by(order_dow, order_id) %>%
+  summarize(reordered_frac = mean(reordered, na.rm = TRUE), .groups = "drop")
 
-p_box = ggplot(reorder_by_dow, aes(x = factor(order_dow), y = reordered_frac)) +
-geom_boxplot() +
-labs(
-title = "Reordered Fraction by Day of Week (0 = Sun)",
-x = "Day of Week",
-y = "Reordered Fraction"
-)
-
-ggplotly(p_box)
+plot_ly(
+  data = reorder_by_dow,
+  x = ~factor(order_dow),
+  y = ~reordered_frac,
+  type = "box",
+  color = ~factor(order_dow)
+) %>%
+  layout(
+    title = "Reordered Fraction by Day of Week (0 = Sun)",
+    xaxis = list(title = "Day of Week"),
+    yaxis = list(title = "Reordered Fraction"),
+    showlegend = FALSE
+  )
 ```
+
 
