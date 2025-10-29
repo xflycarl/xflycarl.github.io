@@ -1,5 +1,5 @@
 ---
-title: "plot"
+title: "Plot"
 output: 
   flexdashboard::flex_dashboard:
     orientation: rows
