@@ -19,6 +19,5 @@ navbar:
 output:
   html_document:
     theme: cosmo
-    code-fold: true
     toc: false
     number-sections: false
