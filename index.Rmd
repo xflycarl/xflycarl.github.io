@@ -1,0 +1,17 @@
+---
+title: "Fei Xue's Website"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    theme: cerulean
+---
+
+### Welcome to my website!
+
+I'm a graduate student focusing on **Biostatistics** in Columbia university.
+
+* view my [resume](resume.Rmd)
+* GitHub: <https://github.com/xflycarl>
+* Email: fx2206@cumc.columbia.edu
+* [Weibo](https://weibo.com/u/6421178940)

@@ -1,0 +1,30 @@
+---
+title: "resume"
+author: "Fei Xue"
+date: "2025-10-29"
+output: html_document
+---
+### EDUCATION
+
+**Columbia University**, 09/2025- present M.S. Biostatistics 
+**University of California, Davis**, 09/2021- 06/2025 B.S. Applied mathematics
+
+### INTERNSHIP EXPERIENCE
+
+**LinkYoYo (Beijing) Technology Co.**, Ltd., Beijing, China   
+AI Algorithm Engineer
+
+**Beijing Dellon Inspection Technology Co.**, Ltd., Beijing, China    
+Sales Data Analysis and Technical Support
+
+### TECHNICAL SKILLS & INTERESTS
+
+Proficient: Python, R, Access, PowerPoint
+
+Competent: LSTM, C++, MATLAB
+
+Active on Weibo (largest social media in China) sharing tech updates, with 18,000 followers.
+
+Attended a talent show “Super Brain” and got a top 12 in totally over 100000 participants.
+
+I love to play video games. 
