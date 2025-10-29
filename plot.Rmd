@@ -2,12 +2,9 @@
 title: "Plot"
 output: 
   flexdashboard::flex_dashboard:
-    orientation: rows
+    orientation: columns
     vertical_layout: fill
     theme: cosmo
-    css: |
-      body { font-size: 12px; }
-      .chart-title { font-size: 14px; font-weight: 600; }
 ---
 
 ```{r setup, include=FALSE}
@@ -17,6 +14,9 @@ library(plotly)
 library(p8105.datasets)
 theme_set(theme_minimal(base_size = 16))
 ```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
 
 ## Line plot
 ```{r}
@@ -40,6 +40,9 @@ y = "Number of Orders"
 ggplotly(p_line)
 
 ```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
 
 ## Bar plot
 ```{r}
