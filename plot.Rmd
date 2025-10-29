@@ -1,0 +1,78 @@
+---
+title: "plot"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    vertical_layout: fill
+    theme: cosmo
+    css: |
+      body { font-size: 16px; }
+      .chart-title { font-size: 18px; font-weight: 600; }
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+library(plotly)
+library(p8105.datasets)
+theme_set(theme_minimal(base_size = 16))
+```
+## Line plot
+```{r}
+data("instacart")
+
+set.seed(8105)
+insta_samp = instacart %>%
+sample_n(min(100000, nrow(instacart)))
+
+hour_counts = insta_samp %>%
+count(order_hour_of_day, name = "orders")
+
+p_line = ggplot(hour_counts, aes(x = order_hour_of_day, y = orders)) +
+geom_line() +
+labs(
+title = "Orders by Hour",
+x = "Hour of Day",
+y = "Number of Orders"
+)
+
+ggplotly(p_line)
+
+```
+
+## Bar plot
+```{r}
+dept_top = insta_samp %>%
+count(department, sort = TRUE) %>%
+slice_head(n = 15)
+
+p_bar = ggplot(dept_top, aes(x = reorder(department, n), y = n)) +
+geom_col() +
+coord_flip() +
+labs(
+title = "Top 15 Departments by Orders",
+x = "Department",
+y = "Orders"
+)
+
+ggplotly(p_bar)
+```
+
+## Box plot
+```{r}
+reorder_by_dow = insta_samp %>%
+group_by(order_dow, order_id) %>%
+summarize(reordered_frac = mean(reordered, na.rm = TRUE), .groups = "drop")
+
+p_box = ggplot(reorder_by_dow, aes(x = factor(order_dow), y = reordered_frac)) +
+geom_boxplot() +
+labs(
+title = "Reordered Fraction by Day of Week (0 = Sun)",
+x = "Day of Week",
+y = "Reordered Fraction"
+)
+
+ggplotly(p_box)
+```
+

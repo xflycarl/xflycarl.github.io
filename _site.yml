@@ -1,23 +1,24 @@
 name: "Fei Xue"
 output_dir: "."
-
-title: "Fei Xue"
 navbar:
   left:
     - text: "Home"
       href: index.Rmd
     - text: "resume"
       href: resume.Rmd
+    - text: "plot"
+      href: plot.Rmd
   right:
-    - icon: github
+    - icon: fa-github fa-lg
       href: https://github.com/xflycarl
-    - icon: envelope
-      href: fx2206@cumc.columbia.edu
+    - icon: fa-envelope fa-lg
+      href: mailto:<fx2206@cumc.columbia.edu>
     - text: Weibo
-      href: https://weibo.com/u/6421178940
+      href: https://weibo.com/u/6421178940/
 
 output:
   html_document:
     theme: cosmo
+    code-fold: true
     toc: false
     number-sections: false
