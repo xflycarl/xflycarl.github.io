@@ -3,9 +3,9 @@ output_dir: "."
 navbar:
   left:
     - text: "Home"
-      href: index.Rmd
+      href: index.html
     - text: "resume"
-      href: resume.Rmd
+      href: resume.html
     - text: "plot"
       href: plot.html
   right:
