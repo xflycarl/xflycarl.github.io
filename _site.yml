@@ -3,9 +3,9 @@ output_dir: "."
 navbar:
   left:
     - text: "Home"
-      href: index.html
+      href: index.Rmd
     - text: "resume"
-      href: resume.html
+      href: resume.Rmd
     - text: "plot"
       href: plot.html
   right:
@@ -18,7 +18,7 @@ navbar:
 
 output:
   html_document:
-    code_fold: true
+    code_folding: hide
     theme: cosmo
     toc: false
     number-sections: false
